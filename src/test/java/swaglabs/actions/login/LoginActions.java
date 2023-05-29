@@ -15,4 +15,15 @@ public class LoginActions extends UIInteractionSteps {
         $(LoginForm.PASSWORD).sendKeys("secret_sauce");
         $(LoginForm.LOGIN).click();
     }
+
+    @Step("Login with the following credentials:")
+    public void withCredentials(String username, String password) {
+        $(LoginForm.USERNAME).sendKeys(username);
+        $(LoginForm.PASSWORD).sendKeys(password);
+        $(LoginForm.LOGIN).click();
+    }
+
+    public String errorMessage() {
+        return $(LoginForm.ERROR_MESSAGE).getText();
+    }
 }
