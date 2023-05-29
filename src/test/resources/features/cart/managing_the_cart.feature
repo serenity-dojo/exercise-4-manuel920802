@@ -1,4 +1,3 @@
-@pending
 Feature: Managing the cart
 
   Background:
@@ -16,7 +15,6 @@ Feature: Managing the cart
         | Sauce Labs Backpack, Sauce Labs Bike Light | 2          |
 
   Rule: Customer can remove items from their cart
-
     Example: Colin removes an item from the cart on the product catalog page 2
       Given Colin has the following item in his cart:
         | Sauce Labs Backpack   |

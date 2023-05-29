@@ -7,12 +7,21 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.assertj.core.api.Assertions;
+import swaglabs.actions.catalog.CatalogItems;
+import swaglabs.actions.catalog.InventoryActions;
 import swaglabs.model.CustomerDetails;
 
 import java.util.List;
 import java.util.Map;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class CartStepDefinitions {
+
+    InventoryActions inventoryActions;
+
+    CatalogItems catalog;
 
     /**
      * Add an item on the catalog page to the cart
@@ -29,7 +38,9 @@ public class CartStepDefinitions {
 
     @When("Colin/he adds the following items to the cart: {items}")
     public void addsItemsToTheCart(List<String> items) {
-        // TODO: Implement me
+       for(String item: items){
+           inventoryActions.addToCart(item);
+       }
     }
 
     @When("Colin/he adds this item to the cart")
@@ -39,7 +50,7 @@ public class CartStepDefinitions {
 
     @Then("the cart item count should be {int}")
     public void theCartItemCountShouldBe(int itemCount) {
-        // TODO: Implement me
+        assertThat(catalog.shoppingCartBadge()).contains(Integer.toString(itemCount));
     }
 
     @And("Colin/he has the following item(s) in his/her cart:")
