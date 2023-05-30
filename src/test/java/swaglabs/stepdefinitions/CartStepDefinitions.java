@@ -7,9 +7,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.assertj.core.api.Assertions;
 import swaglabs.actions.cart.CartActions;
 import swaglabs.actions.cart.CartItems;
+import swaglabs.actions.cart.CheckoutActions;
 import swaglabs.actions.catalog.CatalogItems;
 import swaglabs.actions.catalog.InventoryActions;
 import swaglabs.actions.catalog.ProductDetailsActions;
@@ -24,23 +24,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CartStepDefinitions {
 
     InventoryActions inventoryActions;
-
     CatalogItems catalog;
-
-    NavigateActions navigateActions;
-
+    NavigateActions navigate;
     CartActions cartActions;
-
     CartItems cartItems;
-
     ProductDetailsActions productDetails;
+    CheckoutActions checkout;
+
 
     /**
      * Add an item on the catalog page to the cart
      */
     @When("Colin/he adds {string} to the cart")
     public void colinAddsToTheCart(String item) {
-        // TODO: Implement me
+        inventoryActions.addToCart(item);
     }
 
     @ParameterType(".*")
@@ -68,7 +65,7 @@ public class CartStepDefinitions {
 
     @And("Colin/he has no items in his/her cart")
     public void addedTheFollowingItemsToTheCart() {
-        // TODO: Implement me
+        assertThat(cartItems.items()).isEmpty();
     }
 
     @Then("Colin/he should see the item/items he/she selected in the cart:")
@@ -94,17 +91,21 @@ public class CartStepDefinitions {
     @Given("Colin/he views his shopping cart")
     @When("Colin/he opens the shopping cart")
     public void opensCart() {
-        navigateActions.toTheShoppingCart();
+        navigate.toTheShoppingCart();
     }
 
     @When("Colin/he reviews his order")
     public void reviewOrder() {
-
+        navigate.toTheShoppingCart();
+        cartActions.startCheckout();
+        checkout.enterCustomerDetails(CustomerDetails.about("Colin"));
     }
 
     @When("Colin/he continues shopping")
     public void continuesShopping() {
-        // TODO: Implement me
+        //TODO: this
+        navigate.toTheShoppingCart();
+        cartActions.continueShopping();
     }
 
 
@@ -120,7 +121,7 @@ public class CartStepDefinitions {
 
     @When("Colin/he provides the following personal details:")
     public void heProvidesTheFollowingDetails(CustomerDetails customerDetails) {
-        // TODO: Implement me
+        checkout.enterCustomerDetails(customerDetails);
     }
 }
 

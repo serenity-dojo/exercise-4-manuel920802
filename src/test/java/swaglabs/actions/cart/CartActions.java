@@ -30,4 +30,9 @@ public class CartActions extends UIInteractionSteps {
     public void startCheckout(){
         find(Button.withText("Checkout")).click();
     }
+
+    @Step("Continue shopping")
+    public void continueShopping(){
+        find(Button.withText("Continue Shopping")).click();
+    }
 }
