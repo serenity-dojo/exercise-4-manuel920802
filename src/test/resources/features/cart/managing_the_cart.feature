@@ -14,7 +14,9 @@ Feature: Managing the cart
         | Sauce Labs Backpack                        | 1          |
         | Sauce Labs Backpack, Sauce Labs Bike Light | 2          |
 
+
   Rule: Customer can remove items from their cart
+
     Example: Colin removes an item from the cart on the product catalog page 2
       Given Colin has the following item in his cart:
         | Sauce Labs Backpack   |
@@ -32,6 +34,7 @@ Feature: Managing the cart
       Then he should see the following items:
         | Sauce Labs Bike Light |
 
+
   Rule: Users can add a product to the cart from the product details
     Example: Colin views the details of a product and adds it to his cart 2
       Given Colin is browsing the product catalog
@@ -46,4 +49,6 @@ Feature: Managing the cart
         | Sauce Labs Bike Light |
       And he is browsing the product catalog
       When he opens the shopping cart
-      Then he should see the items he selected in the cart
+      Then he should see the items he selected in the cart:
+        | Sauce Labs Backpack   |
+        | Sauce Labs Bike Light |
