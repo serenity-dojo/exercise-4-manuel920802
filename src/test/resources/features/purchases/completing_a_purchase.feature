@@ -13,7 +13,7 @@ Feature: Completing a purchase
         | First Name   | Last Name   | Zip/Post Code   |
         | <First Name> | <Last Name> | <Zip/Post Code> |
       Then he should be presented with the error message <Error Message>
-      Examples: Some examples
+      Examples:
         | First Name | Last Name | Zip/Post Code | Error Message                  |
         |            | Collector | ABC-123       | Error: First Name is required  |
         | Colin      |           | ABC-123       | Error: Last Name is required   |

@@ -71,7 +71,6 @@ public class CartStepDefinitions {
     @Then("Colin/he should see the item/items he/she selected in the cart:")
     public void shouldSeeItemsHeSelected(List<String> expectedItems) {
         assertThat(cartItems.itemNames()).containsExactlyElementsOf(expectedItems);
-
     }
 
     @When("Colin/he removes {string} from the cart")
@@ -103,9 +102,9 @@ public class CartStepDefinitions {
 
     @When("Colin/he continues shopping")
     public void continuesShopping() {
-        //TODO: this
         navigate.toTheShoppingCart();
-        cartActions.continueShopping();
+        cartActions.startCheckout();
+        checkout.enterCustomerDetails(CustomerDetails.about("Colin"));
     }
 
 
