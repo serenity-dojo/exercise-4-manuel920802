@@ -4,7 +4,7 @@ import net.serenitybdd.core.steps.UIInteractionSteps;
 import net.thucydides.core.annotations.Step;
 
 public class LoginActions extends UIInteractionSteps {
-    @Step
+    @Step("Open the SwagLabs login page")
     public void openTheLoginPage() {
         openUrl("https://www.saucedemo.com/");
     }
