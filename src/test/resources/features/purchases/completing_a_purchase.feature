@@ -1,4 +1,3 @@
-@pending
 Feature: Completing a purchase
 
   Background:

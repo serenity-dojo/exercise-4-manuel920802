@@ -1,4 +1,3 @@
-@pending
 Feature: Calculating sales tax
 
   Background:

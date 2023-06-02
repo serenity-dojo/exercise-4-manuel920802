@@ -42,10 +42,6 @@ public class LoginStepDefinitions {
         assertThat(catalogItems.itemNames()).isNotEmpty();
     }
 
-    public void logged_on_to_the_application() {
-        // TODO: Implement me
-    }
-
     /**
      * Logon to the application if the user is not already logged on
      */

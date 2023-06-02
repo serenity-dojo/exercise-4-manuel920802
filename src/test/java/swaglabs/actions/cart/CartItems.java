@@ -35,9 +35,9 @@ public class CartItems extends UIQuerySteps {
 
     public TotalItemPrice totalItemPrice(){
         return new TotalItemPrice(
-                $(".summary_subtotal_label").getText().split(": ")[0],
-                $(".summary_tax_label").getText().split(": ")[0],
-                $(".summary_total_label").getText().split(": ")[0]
+                $(".summary_subtotal_label").getText().split(": ")[1],
+                $(".summary_tax_label").getText().split(": ")[1],
+                $(".summary_total_label").getText().split(": ")[1]
         );
     }
 }
