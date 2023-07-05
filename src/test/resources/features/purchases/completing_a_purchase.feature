@@ -3,7 +3,7 @@ Feature: Completing a purchase
   Background:
     Given Colin has logged onto the application
 
-  Rule: Customers must provide their name and address during checkout
+  Rule: Customers must provide their name and address info during checkout
 
     Scenario Outline: Colin enters incomplete name and address info
       Given Colin is browsing the product catalog
